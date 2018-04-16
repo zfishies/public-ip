@@ -1,0 +1,12 @@
+#!/bin/bash
+
+IP=`curl ifconfig.me/ip`
+PREV=`cat ~/ip/current_ip`
+
+if [ "$PREV" != "$IP" ]
+then
+  echo $IP > ~/ip/current_ip
+  git commit -m "IP change on `date`"
+  git push https://zfishies:zf123zf123@github.com/zfishies/public-ip.git
+fi
+
