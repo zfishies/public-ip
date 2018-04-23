@@ -5,7 +5,7 @@ cd /home/pi/ip
 IP=`curl http://ipecho.net/plain`
 PREV=`cat current_ip`
 
-if [ "$PREV" != "$IP" ]
+if [[ "$IP" != "" && "$PREV" != "$IP" ]]
 then
   echo $IP > current_ip
   git add current_ip
